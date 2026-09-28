@@ -1,19 +1,20 @@
 "use client";
 
-// THROWAWAY PROTOTYPE: Three portrait-led homepage heroes on /, switched with ?variant=.
+// THROWAWAY PROTOTYPE: Four portrait-led homepage heroes on /, switched with ?variant=.
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import styles from "./prototype-home.module.css";
 
-type Variant = "A" | "B" | "C";
+type Variant = "A" | "B" | "C" | "d";
 type LiveStatus = { online: boolean; label: string };
 
-const variants: Variant[] = ["A", "B", "C"];
+const variants: Variant[] = ["A", "B", "C", "d"];
 const names: Record<Variant, string> = {
   A: "The Interruption",
   B: "Quiet Interface",
   C: "Character Select",
+  d: "Anime Splash",
 };
 
 function Portrait({ className = "" }: { className?: string }) {
@@ -138,6 +139,56 @@ function VariantC({ status }: { status: LiveStatus }) {
   );
 }
 
+// D: Persona 5-inspired anime splash: diagonal field, character art, stats, speech and angular tabs.
+function VariantD({ status }: { status: LiveStatus }) {
+  return (
+    <section className={`${styles.stage} ${styles.stageD}`} aria-label="Variant D: Anime Splash">
+      <div className={styles.dRays} aria-hidden="true" />
+      <div className={styles.dHalftone} aria-hidden="true" />
+      <header className={styles.dTop}>
+        <span className={styles.dBadge}>主人公 <i>SHUJINKŌ / PROTAGONIST</i></span>
+        <span>PERSONAL SITE <b>{"///"}</b> FILE 001</span>
+      </header>
+      <div className={styles.dHero}>
+        <div className={styles.dCopy}>
+          <span className={styles.dChapter}>01 — THE STORY STARTS HERE</span>
+          <h1>HERO<br /><span>AT REST</span><i>!</i></h1>
+          <p className={styles.dSubtitle}>主人公 <strong>SHUJINKŌ</strong> / THE ONE BEHIND THE SCREEN</p>
+          <div className={styles.dSpeech}>
+            <span>ssr0016 SAYS:</span>
+            <p>“No grand entrance.<br />Just a place to begin.”</p>
+          </div>
+        </div>
+        <div className={styles.dCharacter}>
+          <span className={styles.dCharacterIndex}>01</span>
+          <div className={styles.dPortraitWrap}>
+            <Portrait className={styles.dPortraitArt} />
+          </div>
+          <aside className={styles.dStats} aria-label="Character stats, prototype-only values">
+            <small>CHARACTER DATA / UI SAMPLE</small>
+            <div><span>NAME</span><strong>ssr0016</strong></div>
+            <div><span>CLASS</span><strong>Builder</strong></div>
+            <div><span>LVL</span><strong>001</strong></div>
+            <div className={styles.dMeterRow}><span>HP</span><b className={styles.dMeter}><i /></b></div>
+            <div className={styles.dMeterRow}><span>MP</span><b className={styles.dMeter}><i /></b></div>
+            <div className={styles.dConnection}>
+              <span>CONNECTION</span>
+              <strong>{status.online ? "OK" : status.label.toUpperCase()}</strong>
+              <small>LIVE /health</small>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <nav className={styles.dTabs} aria-label="Concept-only menu tabs">
+        <span className={styles.dTabActive}>01 / HOME</span>
+        <span>02 / ABOUT</span>
+        <span>03 / JOURNAL</span>
+        <small>MENU STUDY / NO LIVE ROUTES</small>
+      </nav>
+    </section>
+  );
+}
+
 export default function PrototypeHome({
   initialVariant,
   status,
@@ -174,19 +225,20 @@ export default function PrototypeHome({
   }, [cycle]);
 
   return (
-    <main className={styles.prototype}>
+    <main className={`${styles.prototype} ${variant === "d" ? styles.prototypeD : ""}`}>
       <div className={styles.questionBar}>
         <span>PROTOTYPE / ONE QUESTION</span>
         <p>Anong itsura ng homepage hero kapag RPG-style, gamit ang portrait ko?</p>
-        <span className={styles.questionEnd}>/ · {variant}</span>
+        <span className={styles.questionEnd}>/ · {variant.toUpperCase()}</span>
       </div>
       {variant === "A" && <VariantA status={status} />}
       {variant === "B" && <VariantB status={status} />}
       {variant === "C" && <VariantC status={status} />}
+      {variant === "d" && <VariantD status={status} />}
       {process.env.NODE_ENV !== "production" && (
         <nav className={styles.switcher} aria-label="Prototype variants">
           <button onClick={() => cycle(-1)} aria-label="Previous variant">←</button>
-          <div><small>VARIANT {variant} / 03</small><strong>{names[variant]}</strong></div>
+          <div><small>VARIANT {variant.toUpperCase()} / 04</small><strong>{names[variant]}</strong></div>
           <button onClick={() => cycle(1)} aria-label="Next variant">→</button>
         </nav>
       )}
