@@ -1,0 +1,45 @@
+# === Backups (old git history) ===
+.git.backup/
+
+# === Env files ===
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# === Node / Next.js ===
+node_modules/
+.next/
+out/
+dist/
+build/
+.pnpm-store/
+*.tsbuildinfo
+.vercel
+
+# === Go ===
+*.exe
+*.test
+*.out
+vendor/
+tmp/
+bin/
+volumes/
+cookies.txt
+api
+
+# === Backups ===
+*.bak
+*.bak[0-9]*
+
+# === OS / IDE ===
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+
+# === Logs ===
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
