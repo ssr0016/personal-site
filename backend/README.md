@@ -1,8 +1,9 @@
-# Template Go Echo Squirrel
+# Backend — Personal Site
 
-[![CI](https://github.com/ssr0016/template-go-echo-squirrel/actions/workflows/ci.yml/badge.svg)](https://github.com/ssr0016/template-go-echo-squirrel/actions/workflows/ci.yml)
-[![Go Version](https://img.shields.io/badge/Go-1.26+-00ADD8?style=flat&logo=go)](https://go.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Part of the personal-site monorepo. See root README.md.
+
+TODO: rename Go module from github.com/ssr0016/template to github.com/ssr0016/personal-site/backend
+
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=flat&logo=docker)](https://www.docker.com/)
 [![Swagger](https://img.shields.io/badge/API-Swagger-85EA2D?style=flat&logo=swagger)](https://swagger.io/)
 
@@ -65,8 +66,8 @@ Production-ready Go backend starter kit with **Echo**, **Squirrel**, **pgx**, **
 
 ## Quick Start
 
-git clone https://github.com/ssr0016/template-go-echo-squirrel.git
-cd template-go-echo-squirrel
+git clone git@github.com:ssr0016/personal-site.git
+cd personal-site/backend
 cp .env.example .env
 nano .env
 make db-start
