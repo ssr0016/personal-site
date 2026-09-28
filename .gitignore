@@ -2,9 +2,7 @@
 .git.backup/
 
 # === Env files ===
-.env
-.env.local
-.env.*.local
+.env*
 !.env.example
 
 # === Node / Next.js ===
@@ -26,7 +24,7 @@ tmp/
 bin/
 volumes/
 cookies.txt
-api
+/api
 
 # === Backups ===
 *.bak

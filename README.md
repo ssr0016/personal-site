@@ -5,8 +5,9 @@
 - `backend/` — Go Echo + Squirrel + Postgres
 
 ## Setup
-cd frontend && pnpm install
-cd backend && make dev
+(cd frontend && pnpm install)
+(cd backend && make dev)
+(cd frontend && pnpm dev)
 
 ## Dev URLs
 - Frontend: http://localhost:3000

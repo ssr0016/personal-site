@@ -257,7 +257,7 @@ Successful login resets the counter.
 ### Check Lock Status
 
 SQL:
-  SELECT email, failed_login_attempts, locked_until 
+  SELECT email, failed_login_attempts, locked_until
   FROM users WHERE email = 'user@example.com';
 
 ## Complete Auth Flow

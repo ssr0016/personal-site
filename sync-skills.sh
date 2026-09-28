@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-ROOT=~/Documents/Workspace/personal-site
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo ">>> Syncing skills to frontend..."
 rm -rf "$ROOT/frontend/.agents"
@@ -12,4 +12,4 @@ rm -rf "$ROOT/backend/.agents"
 cp -r "$ROOT/.agents" "$ROOT/backend/.agents"
 cp "$ROOT/skills-lock.json" "$ROOT/backend/skills-lock.json"
 
-echo "✅ Skills synced. Commit in each repo."
+echo "✅ Skills synced. Commit changes at the monorepo root."
